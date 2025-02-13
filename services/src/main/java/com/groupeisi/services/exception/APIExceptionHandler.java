@@ -23,6 +23,13 @@ public class APIExceptionHandler {
         return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(value = {EntityExistsException.class})
+    public ResponseEntity<APIException> handleEntityExistsException(EntityExistsException e) {
+        APIException exception = new APIException(e.getMessage(), HttpStatus.BAD_REQUEST, LocalDateTime.now());
+        return new ResponseEntity<>(exception, HttpStatus.BAD_REQUEST);
+    }
+
+
     @ExceptionHandler(value = {NumberFormatException.class})
     public ResponseEntity<APIException> handleNumberFormatException(NumberFormatException e) {
         APIException exception = new APIException(HttpStatus.BAD_REQUEST.getReasonPhrase(), HttpStatus.BAD_REQUEST, LocalDateTime.now());

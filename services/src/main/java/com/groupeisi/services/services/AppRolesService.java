@@ -23,7 +23,8 @@ public class AppRolesService {
     private final IAppRolesRepository iAppRolesRepository;
 
     private final AppRolesMapper appRolesMapper;
-    MessageSource messageSource;
+
+    private final MessageSource messageSource;
 
     @Transactional(readOnly = true)
     public List<AppRoles> getAppRoles() {
@@ -58,6 +59,7 @@ public class AppRolesService {
 
     @Transactional
     public void deleteAppRoles(int id) {
+        getAppRole(id);
         try {
             iAppRolesRepository.deleteById(id);
         } catch (Exception e) {

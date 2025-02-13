@@ -1,5 +1,6 @@
 package com.groupeisi.services.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ public class AppUserEntity {
     private int etat;
 
     @ManyToMany
+    @JsonIgnoreProperties("users")  // Ignorer la propriété users des rôles
     private List<AppRolesEntity> appRoleEntities;
 
     @OneToMany(mappedBy = "appUserEntity")

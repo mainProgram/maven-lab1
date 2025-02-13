@@ -1,5 +1,6 @@
 package com.groupeisi.services.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class AppRolesEntity {
     private String nom;
 
     @ManyToMany(mappedBy = "appRoleEntities")
+    @JsonIgnore
     private List<AppUserEntity> appUserEntity;
 }

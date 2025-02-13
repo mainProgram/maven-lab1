@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Produit {
     private int id;
 
-    @NotNull(message = "Le nom ne doit pas etre null")
+    @NotNull(message = "Le nom est requis.")
     private String nom;
 
     @NotNull

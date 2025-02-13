@@ -1,9 +1,13 @@
 package com.groupeisi.services.dto;
 
+import com.groupeisi.services.entities.AppRolesEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,7 +27,10 @@ public class AppUser {
     @NotNull(message = "Le mot de passe est requis.")
     private String password;
 
+    @NotEmpty(message = "Le rôle est requis.")
+    private List<AppRoles> appRoleEntities;
+
     @NotNull
-    private int etat;
+    private int etat = 1;
 
 }
