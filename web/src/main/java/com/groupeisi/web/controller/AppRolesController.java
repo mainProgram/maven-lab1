@@ -1,4 +1,4 @@
-package com.groupeisi.web;
+package com.groupeisi.web.controller;
 
 import com.groupeisi.services.dto.AppRoles;
 import com.groupeisi.services.services.AppRolesService;

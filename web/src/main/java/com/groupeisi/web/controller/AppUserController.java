@@ -1,4 +1,4 @@
-package com.groupeisi.web;
+package com.groupeisi.web.controller;
 
 import com.groupeisi.services.dto.AppUser;
 import com.groupeisi.services.services.AppUserService;

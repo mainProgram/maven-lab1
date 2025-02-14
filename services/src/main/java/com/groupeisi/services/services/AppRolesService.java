@@ -2,6 +2,7 @@ package com.groupeisi.services.services;
 
 import com.groupeisi.services.dao.IAppRolesRepository;
 import com.groupeisi.services.dto.AppRoles;
+import com.groupeisi.services.exception.EntityExistsException;
 import com.groupeisi.services.exception.EntityNotFoundException;
 import com.groupeisi.services.exception.RequestException;
 import com.groupeisi.services.mapping.AppRolesMapper;
@@ -43,6 +44,13 @@ public class AppRolesService {
 
     @Transactional
     public AppRoles createAppRoles(AppRoles appRoles) {
+        if (iAppRolesRepository.findByNom(appRoles.getNom()).isPresent()) {
+            throw new EntityExistsException(
+                    messageSource.getMessage("role.exists",
+                            new Object[]{appRoles.getNom()},
+                            Locale.getDefault())
+            );
+        }
         return appRolesMapper.toAppRoles(iAppRolesRepository.save(appRolesMapper.fromAppRoles(appRoles)));
     }
 

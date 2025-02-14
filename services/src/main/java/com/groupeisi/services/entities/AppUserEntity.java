@@ -30,10 +30,10 @@ public class AppUserEntity {
     @Column(nullable = false, length = 50)
     private String password;
 
-    private int etat;
+    private int etat = 1;
 
     @ManyToMany
-    @JsonIgnoreProperties("users")  // Ignorer la propriété users des rôles
+    @JsonIgnoreProperties("users")
     private List<AppRolesEntity> appRoleEntities;
 
     @OneToMany(mappedBy = "appUserEntity")

@@ -10,7 +10,6 @@ import java.util.List;
 public interface AppRolesMapper {
     AppRoles toAppRoles(AppRolesEntity appRolesEntity);
     AppRolesEntity fromAppRoles(AppRoles appRoles);
-
     List<AppRoles> toAppRolesList(List<AppRolesEntity> appRolesEntity);
     List<AppRolesEntity> fromAppRolesList(List<AppRoles> appRoles);
 }
